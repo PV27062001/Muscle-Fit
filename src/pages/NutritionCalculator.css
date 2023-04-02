@@ -1,0 +1,100 @@
+.nutrition-calculator {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+  
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  label {
+    margin-bottom: 10px;
+  }
+  
+  input[type="text"] {
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+  }
+  
+  .btn-submit {
+    padding: 10px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .btn-submit:hover {
+    background-color: #0062cc;
+  }
+  
+  table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+    font-size: 16px;
+  }
+  
+  th {
+    text-align: left;
+    background-color: #f2f2f2;
+    padding: 10px;
+  }
+  
+  td {
+    padding: 10px;
+  }
+  
+  tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+  .image {
+    background-image: url("./nutrition.jpeg");
+    background-size: cover;
+    /* height: 250vh; */
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr auto;
+    justify-items: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+  }
+
+  .nutrition-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    font-family: Arial
+  
+  }
+  .nutrition-image {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+  
+  .nutrition-calculator-container {
+    width: 80%;
+    max-width: 600px;
+    margin-top: 20px;
+  
+  }
+  
