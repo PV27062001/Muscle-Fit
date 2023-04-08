@@ -17,6 +17,9 @@ const Home = () => {
       <br></br>
       <br></br>
       <br></br>
+      <br></br>
+
+      <br></br>
       <SearchExercises
         setExercises={setExercises}
         bodyPart={bodyPart}
