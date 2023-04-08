@@ -111,5 +111,122 @@ const list2g = [
     "Dinner (582 calories): 1 serving Flank Steak with Chimichurri, 1 cup cooked quinoa, 2 cups mixed greens, 2 Tbsp. Carrot-Ginger Vinaigrette",
 ]
 
+ const list3a = [
+    "Breakfast: Aloo parantha, curd, and almonds",
+    "Mid-Meal: Pomegranate, guava, and cottage cheese",
+    "Lunch: Parboiled rice or 3 chapatis with veg curry, daal, fresh lemon, and salad",
+    "Evening: Green tea with honey and 1 cup soybean chaap",
+    "Dinner: 2 chapatis with chicken stew and salad",
+ ]
 
-export {list1a,list1b,list1c,list1d,list1e,list1f,list1g,list2a,list2b,list2c,list2d,list2e,list2f,list2g}
+const list3b =[
+    "Breakfast (8:00-8:30AM) Soy Milk 1 cup + 1 cup Cornflakes + Ripe Banana (2)",
+    "Mid-Meal (11:00-11:30AM) 1 Orange + Grapes (1 cup) + 1 cup cottage cheese",
+    "Lunch (2:00-2:30PM) Parboiled Rice (1 cup)/ 3 Chapatis + Veg. curry (1/2 cup) + Daal (1/2 cup) + 1/4th fresh lemon + salad",
+    "Evening (4:00-4:30PM) Green Tea (1 cup) with 1 tsp honey + 4 Almonds + 5-6 Raisins",
+    "Dinner (8:00-8:30PM) 2 Chapati + Veg. Curry (1 cup) + salad",
+]
+
+const list3c = [
+    "Breakfast (8:00-8:30AM) Veg. Sandwich (2) + Orange juice (1 cup) + 2 boiled eggs",
+    "Mid-Meal (11:00-11:30AM) Pomegranate (1 cup) + 1 Guava + 1 cup cottage cheese",
+    "Lunch (2:00-2:30PM) Parboiled Rice (1 cup)/ 3 Chapatis + Veg. curry (1 cup) + Daal (1 cup) + 1/4th fresh lemon + salad",
+    "Evening (4:00-4:30PM) Green Tea (1 cup) with 1 tsp honey + 4 Almonds + 5-6 Raisins",
+    "Dinner (8:00-8:30PM) 2 Chapatti + Chicken stew (1 cup) + salad",
+]
+
+const list3d = [
+    "Breakfast (8:00-8:30AM) 2 paneer parantha + 1 cup curd + 6 almonds",
+    "Mid-Meal (11:00-11:30AM) 1 Orange + Grapes (1 cup) + 1 cup cottage cheese",
+    "Lunch (2:00-2:30PM) Parboiled Rice (1 cup)/ 3 Chapatis + Veg. curry (1 cup) + Daal (1 cup) + 1/4th fresh lemon + salad",
+    "Evening (4:00-4:30PM) Green Tea (1 cup) with 1 tsp honey + 4 Almonds + 5-6 Raisins",
+    "Dinner (8:00-8:30PM) 2 Chapati + Veg. Curry (1 cup) + salad",
+]
+
+const list3e = [
+    "Breakfast (8:00-8:30AM) Soy Milk 1 cup + 1 cup Cornflakes + Ripe Banana (2)",
+    "Mid-Meal (11:00-11:30AM) Pomegranate (1 cup) + 1 Guava + 1 cup cottage cheese",
+    "Lunch (2:00-2:30PM) Parboiled Rice (1 cup)/ 3 Chapatis + Veg. curry (1 cup) + Daal (1 cup) + 1/4th fresh lemon + salad",
+    "Evening (4:00-4:30PM) Green Tea (1 cup) with 1 tsp honey + 4 Almonds + 5-6 Raisins",
+    "Dinner (8:00-8:30PM) 2 Chapatti + Chicken stew (1 cup) + salad",
+]
+
+const list3f = [
+    "Breakfast (8:00-8:30AM)", "Veg. Sandwich (2) + Orange juice (1 cup) + 2 boiled eggs",
+    "Mid-Meal (11:00-11:30AM)", "1 Orange + Grapes (1 cup) + 1 cup cottage cheese",
+    "Lunch (2:00-2:30PM)", "Parboiled Rice (1 cup)/ 3 Chapatis + Veg. curry (1 cup) + Daal (1 cup) + 1/4th fresh lemon + salad",
+    "Evening (4:00-4:30PM)", "Green Tea (1 cup) with 1 tsp honey + 4 Almonds + 5-6 Raisins",
+    "Dinner (8:00-8:30PM)", "2 Chapati + Veg. Curry (1 cup) + salad",
+]
+
+const list3g = [
+    "Breakfast (8:00-8:30AM)", "2 dal parantha + 1 cup curd + 6 almonds",
+    "Mid-Meal (11:00-11:30AM)", "Pomegranate (1 cup) + 1 Guava + 1 cup cottage cheese",
+    "Lunch (2:00-2:30PM)", "Parboiled Rice (1 cup)/ 3 Chapatis + Veg. curry (1 cup) + Daal (1 cup) + 1/4th fresh lemon + salad",
+    "Evening (4:00-4:30PM)", "Green Tea (1 cup) with 1 tsp honey + 4 Almonds + 5-6 Raisins",
+    "Dinner (8:00-8:30PM)", "2 Chapatti + Chicken stew (1 cup) + salad",
+]
+
+const list4a =[
+    "Breakfast (8:00-8:30AM) 2 aloo parantha + 1 cup curd + 6 almonds",
+    "Mid-Meal (11:00-11:30AM) Pomegranate (1 cup) + 1 Guava",
+    "Lunch (2:00-2:30PM) Parboiled Rice (1 cup)/ 3 Chapatis + Veg. curry (1/2 cup) + Daal (1/2 cup) + 1/4th fresh lemon + salad",
+    "Evening (4:00-4:30PM) Green Tea (1 cup) with 1/2 tsp honey + 1 cup soybean chaap",
+    "Dinner (8:00-8:30PM) 2 Chapatti + Chicken stew (1 cup) + salad",
+]
+
+const list4b =[
+    "Breakfast (8:00-8:30AM) Soy Milk 1 cup + 1 cup Cornflakes + Ripe Banana (1)",
+    "Mid-Meal (11:00-11:30AM) 1 Orange + Grapes (1 cup)",
+    "Lunch (2:00-2:30PM) Parboiled Rice (1 cup)/ 3 Chapatis + Veg. curry (1/2 cup) + Daal (1/2 cup) + 1/4th fresh lemon + salad",
+    "Evening (4:00-4:30PM) Green Tea (1 cup) with 1/2 tsp honey + 4 Almonds + 5-6 Raisins",
+    "Dinner (8:00-8:30PM) 2 Chapati + Veg. Curry (1 cup) + salad",
+]
+
+const list4c =[
+    "Breakfast (8:00-8:30AM) Veg. Sandwich (2) + Orange juice (1 cup)",
+    "Mid-Meal (11:00-11:30AM) Pomegranate (1 cup) + 1 Guava",
+    "Lunch (2:00-2:30PM) Parboiled Rice (1 cup)/ 3 Chapatis + Veg. curry (1 cup) + Daal (1 cup) + 1/4th fresh lemon + salad",
+    "Evening (4:00-4:30PM) Green Tea (1 cup) with 1/2 tsp honey + 4 Almonds + 5-6 Raisins + 4 walnuts",
+    "Dinner (8:00-8:30PM) 2 Chapatti + Chicken stew (1 cup) + salad",
+
+]
+
+const list4d =[
+    "Breakfast (8:00-8:30AM) 2 paneer parantha + 1 cup curd + 6 almonds",
+    "Mid-Meal (11:00-11:30AM) 1 Orange + Grapes (1 cup)",
+    "Lunch (2:00-2:30PM) Parboiled Rice (1 cup)/ 3 Chapatis + Veg. curry (1/2 cup) + Daal (1/2 cup) + 1/4th fresh lemon + salad",
+    "Evening (4:00-4:30PM) Green Tea (1 cup) with 1/2 tsp honey +1 cup paneer tikka",
+    "Dinner (8:00-8:30PM) 2 Chapati + Veg. Curry (1 cup) + salad",
+]
+
+const list4e =[
+    "Breakfast (8:00-8:30AM)", "Soy Milk 1 cup + 1 cup Cornflakes + Ripe Banana (1)",
+    "Mid-Meal (11:00-11:30AM)", "Mixed Nuts (30 gm) + Green Tea (1 cup)",
+    "Lunch (1:00-1:30PM)", "Brown Rice (1 katori) + Rajma (1 katori) + Cucumber Raita (1 katori)",
+    "Evening Snacks (4:00-4:30PM)", "Chickpea Salad (1 bowl)",
+    "Dinner (7:00-7:30PM)", "Roti (1 medium) + Mix Veg (1 katori) + Dal (1 katori)"    
+]
+
+const list4f =[
+    "Breakfast (8:00-8:30AM) Veg. Sandwich (2) + Orange juice (1 cup)",
+    "Mid-Meal (11:00-11:30AM) 1 Orange + Grapes (1 cup)",
+    "Lunch (2:00-2:30PM) Parboiled Rice (1 cup)/ 3 Chapatis + Veg. curry (1 cup) + Daal (1 cup) + 1/4th fresh lemon + salad",
+    "Evening (4:00-4:30PM) Green Tea (1 cup) with 1/2 tsp honey + 4 Almonds + 5-6 Raisins",
+    "Dinner (8:00-8:30PM) 2 Chapati + Veg. Curry (1 cup) + salad",
+]
+
+const list4g =[
+    "Breakfast (8:00-8:30AM) 2 dal parantha + 1 cup curd + 6 almonds",
+    "Mid-Meal (11:00-11:30AM) Pomegranate (1 cup) + 1 Guava",
+    "Lunch (2:00-2:30PM) Parboiled Rice (1 cup)/ 3 Chapatis + Veg. curry (1/2 cup) + Daal (1/2 cup) + 1/4th fresh lemon + salad",
+    "Evening (4:00-4:30PM) Green Tea (1 cup) with 1/2 tsp honey + 4 Almonds + 5-6 Raisins + 4 walnuts",
+    "Dinner (8:00-8:30PM) 2 Chapatti + Chicken stew (1 cup) + salad"   
+]
+
+
+export {list1a,list1b,list1c,list1d,list1e,list1f,list1g,
+        list2a,list2b,list2c,list2d,list2e,list2f,list2g,
+        list3a,list3b,list3c,list3d,list3e,list3f,list3g,
+        list4a,list4b,list4c,list4d,list4e,list4f,list4g,
+    }

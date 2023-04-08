@@ -1,6 +1,10 @@
   import {React,useState,useEffect} from 'react'
   import './bmi.css'    
-  import {list1a,list1b,list1c,list1d,list1e,list1f,list1g,list2a,list2b,list2c,list2d,list2e,list2f,list2g} from './BmiData'
+  import {list1a,list1b,list1c,list1d,list1e,list1f,list1g,
+          list2a,list2b,list2c,list2d,list2e,list2f,list2g,
+          list3a,list3b,list3c,list3d,list3e,list3f,list3g,
+          list4a,list4b,list4c,list4d,list4e,list4f,list4g
+          } from './BmiData'
   import Nutrition from '../Nutrition';
   import "../NutritionCalculator.css"
   import { Pie } from "react-chartjs-2";
@@ -104,9 +108,112 @@
       </div>
   }
 
-  ///    UNDER Weight
+  
+////  intro
+  function calorieIntro()
+  {
+    return(
+      <div className="calorie-intro"><h1>CALCULATE THE BMI TO GNERATE DIET</h1></div>
+    );
+  }
 
-    function calorie1()
+//// under Weight
+  function calorie1()
+  {
+    return (
+      <><div className="heading"><h1>2500 Calories/day </h1></div>
+      <div className="calorie-container">
+        <br></br>
+        <div className="calorie-card">
+          <div className="card-header">
+            <h1>Sunday</h1>
+          </div>
+          <div className="card-body">
+            <ul>
+              {list3a.map((item) => {
+                return <li>{item}</li>;
+              })}
+            </ul>
+          </div>
+        </div>
+        <div className="calorie-card">
+          <div className="card-header">
+            <h1>Monday</h1>
+          </div>
+          <div className="card-body">
+            <ul>
+              {list3b.map((item) => {
+                return <li>{item}</li>;
+              })}
+            </ul>
+          </div>
+        </div>
+        <div className="calorie-card">
+          <div className="card-header">
+            <h1>Tuesday</h1>
+          </div>
+          <div className="card-body">
+            <ul>
+              {list3c.map((item) => {
+                return <li>{item}</li>;
+              })}
+            </ul>
+          </div>
+        </div>
+        <div className="calorie-card">
+          <div className="card-header">
+            <h1>Wednesday</h1>
+          </div>
+          <div className="card-body">
+            <ul>
+              {list3d.map((item) => {
+                return <li>{item}</li>;
+              })}
+            </ul>
+          </div>
+        </div>
+        <div className="calorie-card">
+          <div className="card-header">
+            <h1>Thursday</h1>
+          </div>
+          <div className="card-body">
+            <ul>
+              {list3e.map((item) => {
+                return <li>{item}</li>;
+              })}
+            </ul>
+          </div>
+        </div>
+        <div className="calorie-card">
+          <div className="card-header">
+            <h1>Friday</h1>
+          </div>
+          <div className="card-body">
+            <ul>
+              {list3f.map((item) => {
+                return <li>{item}</li>;
+              })}
+            </ul>
+          </div>
+        </div>
+        <div className="calorie-card">
+          <div className="card-header">
+            <h1>Saturday</h1>
+          </div>
+          <div className="card-body">
+            <ul>
+              {list3g.map((item) => {
+                return <li>{item}</li>;
+              })}
+            </ul>
+          </div>
+        </div>
+      </div></>
+    );
+  }
+
+////    Normal weight
+    function calorie2()
     {
       return (
         <><div className="heading"><h1>2000 Calories/day </h1></div>
@@ -200,32 +307,103 @@
       );
     }
 
-////     Normal Weigth
-
-    function calorie2()
-    {
-      return(
-        <div className="card-header">
-                  <h1>in development</h1>
-                  <br></br>
-              </div>
-      );
-    }
-
- ////     over wEIGHT
+////     over wEIGHT
 
     function calorie3()
     {
-      return(
-      <div className="card-header">
-                  <h1>in development</h1>
-                  <br></br>
-              </div>
+      return (
+        <><div className="heading"><h1>1800 Calories/day </h1></div>
+        <div className="calorie-container">
+          <br></br>
+          <div className="calorie-card">
+            <div className="card-header">
+              <h1>Sunday</h1>
+            </div>
+            <div className="card-body">
+              <ul>
+                {list4a.map((item) => {
+                  return <li>{item}</li>;
+                })}
+              </ul>
+            </div>
+          </div>
+          <div className="calorie-card">
+            <div className="card-header">
+              <h1>Monday</h1>
+            </div>
+            <div className="card-body">
+              <ul>
+                {list4b.map((item) => {
+                  return <li>{item}</li>;
+                })}
+              </ul>
+            </div>
+          </div>
+          <div className="calorie-card">
+            <div className="card-header">
+              <h1>Tuesday</h1>
+            </div>
+            <div className="card-body">
+              <ul>
+                {list4c.map((item) => {
+                  return <li>{item}</li>;
+                })}
+              </ul>
+            </div>
+          </div>
+          <div className="calorie-card">
+            <div className="card-header">
+              <h1>Wednesday</h1>
+            </div>
+            <div className="card-body">
+              <ul>
+                {list4d.map((item) => {
+                  return <li>{item}</li>;
+                })}
+              </ul>
+            </div>
+          </div>
+          <div className="calorie-card">
+            <div className="card-header">
+              <h1>Thursday</h1>
+            </div>
+            <div className="card-body">
+              <ul>
+                {list4e.map((item) => {
+                  return <li>{item}</li>;
+                })}
+              </ul>
+            </div>
+          </div>
+          <div className="calorie-card">
+            <div className="card-header">
+              <h1>Friday</h1>
+            </div>
+            <div className="card-body">
+              <ul>
+                {list4f.map((item) => {
+                  return <li>{item}</li>;
+                })}
+              </ul>
+            </div>
+          </div>
+          <div className="calorie-card">
+            <div className="card-header">
+              <h1>Saturday</h1>
+            </div>
+            <div className="card-body">
+              <ul>
+                {list4g.map((item) => {
+                  return <li>{item}</li>;
+                })}
+              </ul>
+            </div>
+          </div>
+        </div></>
       );
     }
 
-
-  ////    OBESE
+////    OBESE
 
   function calorie4() {
     return (
@@ -319,17 +497,20 @@
   }
 
     function Calorie() {
+      if(calorie == 0){
+        return calorieIntro();
+      }
       if (calorie < 18.5) {
-        return calorie1(); // Underweight
+        return calorie4(); // Obese 
       }
       if (calorie >= 18.5 && calorie <= 24.9) {
-        return calorie2(); // Normal weight
+        return calorie3(); // gain Weight
       }
       if (calorie >= 25 && calorie <= 29.9) {
-        return calorie3(); // Overweight
+        return calorie2(); // Gain weight
       }
       if (calorie >= 30) {
-        return calorie4(); // Obese
+        return calorie1(); // Gain weight
       }
     }
 

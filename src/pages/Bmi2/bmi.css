@@ -103,6 +103,16 @@
     /* / */
 
 /* calorie result */
+
+.calorie-intro {
+  text-align: center;
+  margin: 20px;
+  font-size: 28px;
+  font-weight: bold;
+  color: #333;
+  text-shadow: 2px 2px 4px #ccc;
+}
+
 .Calorie-result {
   background-color: #ffffff;
   border-radius: 10px;
