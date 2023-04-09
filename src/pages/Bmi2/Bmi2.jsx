@@ -13,18 +13,29 @@
   let res=0;
   let bmiResult = localStorage.getItem('bmiResult');
   let bmiResults = [];
-
+  
   function Bmi2() {
       const [bmi,setbmi]=useState({
-          bweight: "",
-          bheight: "",
-          bage: "",
-          bgender: "",
-          bphysicalActivity: 0,
+          weight: "",
+          height: "",
+          age: "",
+          gender: "",
+          physicalActivity: 0,
       })   
       const [flag,setflag] = useState(false)
       const [bmiFlag,setbmiFlag] = useState(false)
       const [chartData, setChartData] = useState({});
+
+      
+      // const [bmiResult, setBmiResult] = useState("");
+
+      // const handleClear = () => {
+      //   setBmiResult("");
+      // };
+    
+      const handleRefresh = () => {
+        window.location.reload();
+      };
 
       function onchange(event){
           console.log(bmi);   
@@ -32,34 +43,47 @@
               ...bmi,
               [event.target.name]: event.target.value,
           })
-          
           return;
       }  
 
       function onsubmit(event) {
         event.preventDefault();
-        let w = parseFloat(bmi.bweight);
-        let h = parseFloat(bmi.bheight);
-        res = w / (h * h);
+        let w = parseFloat(bmi.weight);
+        let h = parseFloat(bmi.height);
+        res = w / (h * h / 10000);
         res = Math.round(res * 100) / 100;
       
         localStorage.setItem('bmiResult', res);
 
         document.querySelector("#bmiDisplay").innerHTML = res < 18.5 ? `Your BMI is ${res} ,underweight` : res < 25
           ? `Your BMI is ${res} ,Normalweight` : res < 30 ? `Your BMI is ${res} ,Overweight` : `Your BMI is ${res} ,Obese`;
-        let g = bmi.bgender;
+        let g = bmi.gender;
 
         console.log(g);
-        if (g === "F") calorie = ((655.1 + 9.6 * parseFloat(bmi.bweight) + 190 * parseFloat(bmi.bheight))  / (4.7 * parseInt(bmi.bage))) * bmi.bphysicalActivity;
-
-        else calorie = ((66.5 + 13.8 * parseFloat(bmi.bweight) + 500 * parseFloat(bmi.bheight))  / (6.8 * parseInt(bmi.bage))) * bmi.bphysicalActivity;
+        if (g === "F") {
+          if (bmi.physicalActivity === "1") {
+            calorie = (655.1 + (9.563 * parseInt(bmi.weight)) + (1.850 * parseInt(bmi.height)) - (4.676 * parseInt(bmi.age))) * 1.55;
+          } else if (bmi.physicalActivity === "2") {
+            calorie = (655.1 + (9.563 * parseInt(bmi.weight)) + (1.850 * parseInt(bmi.height)) - (4.676 * parseInt(bmi.age))) * 1.725;
+          } else if (bmi.physicalActivity === "3") {
+            calorie = (655.1 + (9.563 * parseInt(bmi.weight)) + (1.850 * parseInt(bmi.height)) - (4.676 * parseInt(bmi.age))) * 1.9;
+          }
+        } else {
+          if (bmi.physicalActivity === "1") {
+            calorie = (66.47 + (13.75 * parseInt(bmi.weight)) + (5.003 * parseInt(bmi.height)) - (6.755 * parseInt(bmi.age))) * 1.55;
+          } else if (bmi.physicalActivity === "2") {
+            calorie = (66.47 + (13.75 * parseInt(bmi.weight)) + (5.003 * parseInt(bmi.height)) - (6.755 * parseInt(bmi.age))) * 1.725;
+          } else if (bmi.physicalActivity === "3") {
+            calorie = (66.47 + (13.75 * parseInt(bmi.weight)) + (5.003 * parseInt(bmi.height)) - (6.755 * parseInt(bmi.age))) * 1.9;
+          }
+        }        
         console.log(calorie);
         setbmi({
-          bweight: "",
-          bheight: "",
-          bage: "",
-          bgender: "",
-          bphysicalActivity: 0,
+          weight: "",
+          height: "",
+          age: "",
+          gender: "",
+          physicalActivity: 0,
         });
         const data = {
           labels: ['BMI', 'Remaining'],
@@ -81,24 +105,24 @@
       <h1><center>  BMI CALCULATOR</center></h1>
           <form className="bmi-form" onSubmit={onsubmit}>
         <h2>Weight</h2>
-        <input type="number" step="0.01" min="0" placeholder="Weight(kg)" name="bweight" value={bmi.bweight} onChange={onchange} required autoComplete="on"/>
+        <input type="number" step="0.01" min="0" placeholder="Weight(kg)" name="weight" value={bmi.weight} onChange={onchange} required autoComplete="on"/>
         <h2>Height</h2>
-        <input type="number" min="0" step="0.01" placeholder="Height(m)" name="bheight" value={bmi.bheight} onChange={onchange} required autoComplete="on"/>
+        <input type="number" min="0" step="0.01" placeholder="Height(cm)" name="height" value={bmi.height} onChange={onchange} required autoComplete="on"/>
         <h2>Age</h2>
-        <input type="number" min="0" placeholder="Age" name="bage" value={bmi.bage} onChange={onchange} required autoComplete="on"/>
+        <input type="number" min="0" placeholder="Age" name="age" value={bmi.age} onChange={onchange} required autoComplete="on"/>
         <h2>Gender</h2>
         <br></br>
         <div class="bmi-gender">
-        <label><input type="radio" name="bgender" value="M" onChange={onchange} required autoComplete="off"/>Male</label>
-        <label><input type="radio" name="bgender" value="F" onChange={onchange} required autoComplete="off"/>Female</label>  
+        <label><input type="radio" name="gender" value="M" onChange={onchange} required autoComplete="off"/>Male</label>
+        <label><input type="radio" name="gender" value="F" onChange={onchange} required autoComplete="off"/>Female</label>  
         </div>
         <br></br>
         <h2>Physical Activity</h2>
         <br></br>
         <div class="bmi-radio">
-        <label><input type="radio" name="bphysicalActivity" value="1" onChange={onchange}  />Low</label>
-        <label><input type="radio" name="bphysicalActivity" value="2" onChange={onchange}  />Medium</label>
-        <label><input type="radio" name="bphysicalActivity" value="3" onChange={onchange}  />Heavy</label>
+        <label><input type="radio" name="physicalActivity" value="1" onChange={onchange}  />Low</label>
+        <label><input type="radio" name="physicalActivity" value="2" onChange={onchange}  />Medium</label>
+        <label><input type="radio" name="physicalActivity" value="3" onChange={onchange}  />Heavy</label>
         </div>
         <div class="bmi-buttons">
         <button type="submit">Submit</button>
@@ -113,7 +137,7 @@
   function calorieIntro()
   {
     return(
-      <div className="calorie-intro"><h1>CALCULATE THE BMI TO GNERATE DIET</h1></div>
+      <div className="calorie-intro"><h1>CALCULATE THE BMI TO GENERATE DIET</h1></div>
     );
   }
 
@@ -308,7 +332,6 @@
     }
 
 ////     over wEIGHT
-
     function calorie3()
     {
       return (
@@ -404,7 +427,6 @@
     }
 
 ////    OBESE
-
   function calorie4() {
     return (
       <><div className="heading"><h1>1600 Calories/day </h1></div><div className="calorie-container">
@@ -500,20 +522,19 @@
       if(calorie == 0){
         return calorieIntro();
       }
-      if (calorie < 18.5) {
+      if (calorie < 2000) {
         return calorie4(); // Obese 
+      } 
+      if (calorie >= 2000 && calorie < 3000) {
+        return calorie3(); // Maintain Weight
       }
-      if (calorie >= 18.5 && calorie <= 24.9) {
-        return calorie3(); // gain Weight
-      }
-      if (calorie >= 25 && calorie <= 29.9) {
+      if (calorie >= 3000 && calorie < 3500) {
         return calorie2(); // Gain weight
       }
-      if (calorie >= 30) {
-        return calorie1(); // Gain weight
+      if (calorie >= 3500) {
+        return calorie1(); // Gain weight 
       }
     }
-
 
     // function CalorieToLoseWeight()
     // {
@@ -524,7 +545,6 @@
     // }
     
     // const [calorieFunction, setCalorieFunction] = useState(Calorie);
-
 
   return (
     <div className="bmi-grid">
@@ -540,7 +560,7 @@
           {!bmiFlag && BmiCalculator()}
           <div className="bmi-result">
             {!bmiFlag && <div id="bmiDisplay"></div>}
-            {/* <div className='Calorie-result'>{"Your recommended daily Calorie intake is : " +  (Math.round(calorie)) + "k" }</div>  */}
+            <div className='Calorie-result'>{"Your AMR is : " +  (Math.round(calorie)) + " calories per day"}</div> 
             <br></br>
             {!bmiFlag ? (
                 <button onClick={() => setbmiFlag(true)}>Click here for Diet Recommendation</button>
@@ -554,11 +574,12 @@
             {/* {chartData && <Pie data={chartData} />} */} 
           </div>
           <div className='bmi-result'>{"Your older BMI : " +  bmiResult}</div> 
+          {/* {/* <button onClick={handleClear}>Clear</button> */}
+          {/* <button onClick={handleRefresh}>Refresh</button>  */}
         </div>
       </div>
     </div>
   );
-  
-  } 
+} 
 
-  export default Bmi2
+export default Bmi2
