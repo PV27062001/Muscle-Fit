@@ -1,0 +1,408 @@
+.bmi-grid2 {
+  background-image: url("./diet2.jpeg");
+  background-size: 100% 100%;
+  /* height: 110vh; */
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr auto;
+  justify-items: center;
+  align-items: center;
+  font-family: Arial, sans-serif;
+   }
+
+    .bmi-grid2 h1 {
+      font-size: 3rem;
+      margin: 0;
+    }
+    
+    .bmi-form {
+      background-color: rgba(256, 256, 256, 0.9);
+      padding: 2rem;
+      border-radius: 1rem;
+      text-align: center;
+    }
+    
+    .bmi-form label {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      display: block;
+    }
+    
+    .bmi-form input[type="number"] {
+      border: none;
+      border-radius: 0.5rem;
+      padding: 0.5rem;
+      margin-bottom: 1rem;
+      font-size: 1.2rem;
+      width: 100%;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    }
+    
+    .bmi-form button {
+      background-color: #007bff;
+      border: none;
+      color: white;
+      padding: 1rem 2rem;
+      border-radius: 1rem;
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .bmi-form button:hover {
+      background-color: #0069d9;
+    }
+
+    /* //////////////////////////////////////////        BMI                 RESULT        ////////////////////////////////////////////// */
+    .bmi-result {
+      background-color: rgba(256, 256, 256, 0.9);
+      padding: 2rem;
+      border-radius: 1rem;
+      text-align: center;
+      margin-top: -20px;
+    }
+    
+    .bmi-result label {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      display: block;
+    }
+    
+    .bmi-result h2 {
+      font-size: 2.5rem;
+      margin: 0;
+    }
+    
+    .bmi-result p {
+      font-size: 1.2rem;
+      margin-top: 0.5rem;
+    }
+    
+    .bmi-result button {
+      font-size: 1.2rem;
+      margin-top: 2rem;
+      padding: 1rem 2rem;
+      border: none;
+      border-radius: 0.5rem;
+      background-color: #4caf50;
+      color: white;
+      cursor: pointer;
+      transition: all 0.2s ease-in-out;
+      margin-top: -5px;
+    }
+    
+    .bmi-result button:hover {
+      background-color: #388e3c;
+    }
+ 
+
+    .hidden {
+      display: none;
+    }
+    
+    /* ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+
+/* calorie result */
+
+.calorie-intro {
+  text-align: center;
+  margin: 15px;
+  font-size: 28px;
+  font-weight: bold;
+  color: #333;
+  text-shadow: 2px 2px 4px #ccc;
+}
+
+.Calorie-result {
+  margin-top: 30px;
+  text-align: center;
+  font-size: 24px;
+  color: black;
+  font-weight: bold;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 10px;
+  border: 1px solid black;
+  border-radius: 5px;
+  transition: all 0.3s ease-in-out;
+}
+
+.Calorie-result:hover {
+  box-shadow: 0px 0px 10px black;
+}
+/* .Calorie-result:hover::before {
+  content: attr(title);
+  position: absolute;
+  top: calc(100% + 5px);
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 10px;
+  background-color: #f2f2f2;
+  border-radius: 5px;
+  color: #333;
+  font-size: 14px;
+  font-weight: normal;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s, opacity 0.2s ease;
+} */
+
+
+.Calorie-result:hover::before {
+  content: attr(data-title);
+  display: block;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: medium;
+  padding: 10px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2);
+  background-color: greenyellow;
+  z-index: 1;
+  pointer-events: none;
+}
+
+
+
+
+.Calorie-result h2 {
+  font-size: 36px;
+  margin: 0;
+}
+
+.Calorie-result p {
+  font-size: 18px;
+  margin-top: 10px;
+}
+    
+.calorie-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+      padding: 20px;
+    }
+    
+    .calorie-card {
+      background-color: #fff;
+      border: 1px solid #ccc;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+      width: 300px;
+    }
+    
+    .card-header {
+      background-color: #e91a1a;
+      padding: 20px;
+    }
+    
+    .card-header h1 {
+      font-size: 24px
+    }
+    .card-body {
+      padding: 1rem;
+    }
+    
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    
+    li {
+      margin-bottom: 0.5rem;
+    }
+    
+    li span {
+      font-weight: bold;
+    }
+
+    .heading {
+      text-align: center;
+      margin-top: 20px;
+    }
+    
+    .heading h1 {
+      font-size: 36px;
+      font-weight: bold;
+      color: #333;
+      text-transform: uppercase;
+    }
+  
+    /*                  CARD                    */
+    #bmiDisplay {
+      background-color: #f2f2f2;
+      padding: 10px;
+      border-radius: 5px;
+      text-align: center;
+      font-size: 24px;
+      font-weight: bold;
+      color: #333;
+    }
+    
+    .bmi-form {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    
+    .bmi-form h2 {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+    
+    .bmi-form input[type="number"],
+    .bmi-form input[type="text"] {
+      padding: 5px;
+      border-radius: 5px;
+      border: none;
+      margin-bottom: 10px;
+    }
+    
+    .bmi-radio label {
+      display: inline-block;
+      margin-right: 10px;
+    }
+    .bmi-radio input[type="radio"] {
+      display: inline-block;
+      margin-right: 5px;
+    }
+    
+    .bmi-gender label {
+      display: inline-block;
+      margin-right: 10px;
+    }
+    .bmi-gender input[type="radio"] {
+      display: inline-block;
+      margin-right: 5px;
+    }
+    
+    .bmi-buttons {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+    }
+    
+    .bmi-buttons button {
+      margin: 0 10px;
+    }
+    
+    .calorie2-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 20px;
+    }
+    
+    .calorie2-title {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    
+    .calorie2-input {
+      width: 300px;
+      height: 40px;
+      padding: 10px;
+      font-size: 16px;
+      margin-bottom: 20px;
+      border-radius: 5px;
+      border: none;
+      box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    
+    .calorie2-button {
+      width: 150px;
+      height: 40px;
+      font-size: 16px;
+      font-weight: bold;
+      color: #fff;
+      background-color: #007bff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
+    }
+    
+    .calorie2-button:hover {
+      background-color: #0056b3;
+    }
+    
+    .calorie2-result {
+      font-size: 20px;
+      font-weight: bold;
+      margin-top: 20px;
+    }
+   
+    img[src$="bmiScale"] {
+      display: block;
+      margin: auto;
+      max-width: 100%;
+      height: auto;
+      transition: transform 0.3s ease-in-out;
+    }
+    
+    img[src$="bmiScale"]:hover {
+      transform: scale(1.1);
+    }
+    
+    img {
+      display: block;
+      margin: auto;
+      max-width: 100%;
+      height: auto;
+      transition: transform 0.3s ease-in-out;
+    }
+    
+    /* img:hover {
+      transform: scale(1.1);
+    } */
+    .image-container {
+      position: relative;
+    }
+    
+    .bmi-table {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: #fff;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+      padding: 10px;
+      font-size: 14px;
+    }
+    
+    .image-container:hover .bmi-table {
+      display: table;
+    }
+    .bmi-table tr:nth-child(1) {
+      background-color: yellow;
+    }
+    
+    .bmi-table tr:nth-child(2) {
+      background-color: rgb(10, 146, 10);
+    }
+    
+    .bmi-table tr:nth-child(3) {
+      background-color: orange;
+    }
+    
+    .bmi-table tr:nth-child(4) {
+      background-color: red;
+    }
+        
+    
+    
+    
+    
+    
