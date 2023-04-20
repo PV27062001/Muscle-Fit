@@ -11,10 +11,8 @@ import Overweight from "./../../pages/BMI chart/OverWeight.png"
           list3a,list3b,list3c,list3d,list3e,list3f,list3g,
           list4a,list4b,list4c,list4d,list4e,list4f,list4g
           } from './BmiData'
-  import Nutrition from '../Nutrition';
-  import "../NutritionCalculator.css"
-  import { Pie } from 'react-chartjs-2';
-import SemiCircle from '../BMI chart/SemiCircle';
+
+
 
   let calorie=0;
   let res=0; // Bmi value
