@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Stack,Button } from "@mui/material";
 import Logo from "../assests/images/Logo.png";
+import Banner from "../assests/images/banner2.png"
 import { Box } from "@mui/system";
 import { blue } from "@mui/material/colors";
 
@@ -47,15 +48,15 @@ const Navbar = () => {
           >
             Home
           </Link>
-          <a
-            href="/Exercise"
+          <Link
+            to="/Exercise"
             style={{
               textDecoration: "none",
               color: "#FFFFFF",
             }}
           >
-            Exercises
-          </a>
+            Exercise
+          </Link>
           <Link
             to="/Bmi2"
             style={{

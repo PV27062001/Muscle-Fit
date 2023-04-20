@@ -52,7 +52,7 @@ const RecipeSearch = () => {
     <Grid container spacing={2} alignItems="center" justifyContent="center">
       <Grid item xs={12}>
         <Typography variant="h2" align="center" gutterBottom>
-        Find the best way to cook your diet foods
+        Find The Ingredients To Cook Your Diet Foods
         </Typography>
       </Grid>
       <Grid item xs={4}>

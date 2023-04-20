@@ -25,6 +25,7 @@ const App = () => {
           <Route path="/Bmi2" element={<Bmi2 />}/>
           <Route exact path="/nutrition" element={<Nutrition />} /> 
           <Route exact path="/RecipeSearch" element={<RecipeSearch />} /> 
+
       </Routes></Box>
   );
 };

@@ -14,7 +14,7 @@ const BodyParts = ({ item, bodyPart, setBodyPart }) => {
         backgroundColor: "#EFD2B1",
         borderBottomLeftRadius: "20px",
         width: "250px",
-        height: "280px",
+        height: "250px",
         cursor: "pointer",
         gap: "47px",
       }}
@@ -26,12 +26,12 @@ const BodyParts = ({ item, bodyPart, setBodyPart }) => {
       <img
         src={Icon}
         style={{
-          width: "40px",
-          height: "40px",
+          width: "100px",
+          height: "100px",
         }}
       />
       <Typography
-        fontSize="24px"
+        fontSize="30px"
         fontWeight="bold"
         color="#3A1212"
         textTransform="capitalize"

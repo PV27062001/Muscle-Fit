@@ -1,4 +1,10 @@
   import {React,useState,useEffect} from 'react'
+  import initial from "./../../pages/BMI chart/Initial.png"
+import Normal from "./../../pages/BMI chart/Normal.png"
+import Obese from "./../../pages/BMI chart/obese.png"
+import UderWeight from "./../../pages/BMI chart/underWeight.png"
+import Overweight from "./../../pages/BMI chart/OverWeight.png"
+
   import './bmi.css'    
   import {list1a,list1b,list1c,list1d,list1e,list1f,list1g,
           list2a,list2b,list2c,list2d,list2e,list2f,list2g,
@@ -7,14 +13,15 @@
           } from './BmiData'
   import Nutrition from '../Nutrition';
   import "../NutritionCalculator.css"
-  import { Pie } from "react-chartjs-2";
+  import { Pie } from 'react-chartjs-2';
+import SemiCircle from '../BMI chart/SemiCircle';
 
   let calorie=0;
-  let res=0;
+  let res=0; // Bmi value
   let bmiResult = localStorage.getItem('bmiResult');
-  let bmiResults = [];
-  
+
   function Bmi2() {
+    const [bmiScale,setBmiScale]= useState(null)
       const [bmi,setbmi]=useState({
           weight: "",
           height: "",
@@ -22,21 +29,8 @@
           gender: "",
           physicalActivity: 0,
       })   
-      const [flag,setflag] = useState(false)
+      const [flag,setflag] = useState(false)  
       const [bmiFlag,setbmiFlag] = useState(false)
-      const [chartData, setChartData] = useState({});
-
-      
-      // const [bmiResult, setBmiResult] = useState("");
-
-      // const handleClear = () => {
-      //   setBmiResult("");
-      // };
-    
-      const handleRefresh = () => {
-        window.location.reload();
-      };
-
       function onchange(event){
           console.log(bmi);   
           setbmi({
@@ -45,20 +39,36 @@
           })
           return;
       }  
+      const [showModal, setShowModal] = useState(false);
 
+      
       function onsubmit(event) {
         event.preventDefault();
         let w = parseFloat(bmi.weight);
         let h = parseFloat(bmi.height);
         res = w / (h * h / 10000);
         res = Math.round(res * 100) / 100;
-      
         localStorage.setItem('bmiResult', res);
 
-        document.querySelector("#bmiDisplay").innerHTML = res < 18.5 ? `Your BMI is ${res} ,underweight` : res < 25
-          ? `Your BMI is ${res} ,Normalweight` : res < 30 ? `Your BMI is ${res} ,Overweight` : `Your BMI is ${res} ,Obese`;
-        let g = bmi.gender;
+        if(res == 0){
+          setBmiScale(initial)
+        }
 
+        else if (res < 18.5){
+          setBmiScale(UderWeight)
+        }else if(res < 25){
+          setBmiScale(Normal)
+        }else if(res < 30){
+          setBmiScale(Overweight)
+        }else{
+          setBmiScale(Obese)
+        }
+        // document.querySelector("#bmiDisplay").innerHTML = 
+        // res < 18.5 ? `Your BMI is ${res} ,underweight` :
+        // res < 25 ? `Your BMI is ${res} ,Normalweight` : 
+        // res < 30 ? `Your BMI is ${res} ,Overweight` : 
+        // `Your BMI is ${res} ,Obese`;
+        let g = bmi.gender;
         console.log(g);
         if (g === "F") {
           if (bmi.physicalActivity === "1") {
@@ -85,24 +95,14 @@
           gender: "",
           physicalActivity: 0,
         });
-        const data = {
-          labels: ['BMI', 'Remaining'],
-          datasets: [
-            {
-              data: [res, 25 - res],
-              backgroundColor: ['#FF6384', '#36A2EB'],
-              hoverBackgroundColor: ['#FF6384', '#36A2EB']
-            }
-          ]
-        };
-        setChartData(data);
-        setflag(true);
+         setflag(true);
       }
-      
+
       function BmiCalculator()
       {
           return <div>
       <h1><center>  BMI CALCULATOR</center></h1>
+      <br></br>
           <form className="bmi-form" onSubmit={onsubmit}>
         <h2>Weight</h2>
         <input type="number" step="0.01" min="0" placeholder="Weight(kg)" name="weight" value={bmi.weight} onChange={onchange} required autoComplete="on"/>
@@ -129,8 +129,8 @@
         <button onClick={() => window.history.back()}>Back</button>
         </div>      
           </form>
-      </div>
-  }
+        </div>
+      }
 
   
 ////  intro
@@ -519,20 +519,20 @@
   }
 
     function Calorie() {
-      if(calorie == 0){
+      if(res == 0){
         return calorieIntro();
       }
-      if (calorie < 2000) {
-        return calorie4(); // Obese 
+      if (res < 18) {
+        return calorie1(); // Obese 
       } 
-      if (calorie >= 2000 && calorie < 3000) {
-        return calorie3(); // Maintain Weight
+      if (res >= 18 && res < 25) {
+        return calorie2(); // Maintain Weight
       }
-      if (calorie >= 3000 && calorie < 3500) {
-        return calorie2(); // Gain weight
+      if (res >= 25 && res < 30) {
+        return calorie3(); // Gain weight
       }
-      if (calorie >= 3500) {
-        return calorie1(); // Gain weight 
+      if (res >= 30) {
+        return calorie4(); // Gain weight 
       }
     }
 
@@ -546,24 +546,64 @@
     
     // const [calorieFunction, setCalorieFunction] = useState(Calorie);
 
-  return (
-    <div className="bmi-grid">
-      <div className="bmi-grid1">
-        <h1>BMI</h1>
-        <div className="bmi-calc" onClick={() => {
-          setflag(false)
-          setbmiFlag(false)
-        }}></div>
-      </div>
-      <div className="bmi-grid2">
-        <div className="bmi-grid2-color">
-          {!bmiFlag && BmiCalculator()}
-          <div className="bmi-result">
-            {!bmiFlag && <div id="bmiDisplay"></div>}
-            <div className='Calorie-result'>{"Your AMR is : " +  (Math.round(calorie)) + " calories per day"}</div> 
-            <br></br>
-            {!bmiFlag ? (
-                <button onClick={() => setbmiFlag(true)}>Click here for Diet Recommendation</button>
+    return (
+      <div className="bmi-grid">
+        <div className="bmi-grid1">
+          {/* <h1>BMI</h1> */}
+          <div className="bmi-calc" onClick={() => {
+            setflag(false)
+            setbmiFlag(false)
+          }}></div>
+        </div>
+        <div className="bmi-grid2">
+          <div className="bmi-grid2-color">
+            {!bmiFlag && BmiCalculator()}
+            <div className="bmi-result">
+              {!bmiFlag && (
+                <div className="image-container">
+                  <img src={bmiScale} style={{ display: "block", margin: "auto", maxWidth: "100%", height: "auto" }} />
+                  <br></br>
+                  {/* <div id="bmiDisplay"> */}
+                    <table className="bmi-table">
+                      <thead>
+                        <tr>
+                          <th>BMI Range</th>
+                          <th>Category</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>Below 18.5</td>
+                          <td>Under Weight</td>
+                        </tr>
+                        <tr>
+                          <td>18.5 - 24.9</td>
+                          <td>Normal Weight</td>
+                        </tr>
+                        <tr>
+                          <td>25.0 - 29.9</td>
+                          <td>Over Weight</td>
+                        </tr>
+                        <tr>
+                          <td>30.0 and above</td>
+                          <td>Obese</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  {/* </div> */}
+                  <span style={{ fontSize: "20px" }}>
+                    {res === 0 ? "" :
+                      `Your BMI is : ${res}, ${res < 18.5 ? "Under Weight" :
+                        res < 25 ? "Normal Weight" :
+                        res < 30 ? "Over Weight" :
+                        "Obese"}`}
+                  </span>
+                </div>
+              )}
+              <div className='Calorie-result' data-title="AMR, or Active Metabolic Rate, is the total number of calories your body burns in a day, including both BMR and calories burned through physical activity. BMR, or Basal Metabolic Rate, is the amount of energy your body needs to perform basic functions while at rest, and takes into account your age, gender, weight, and height but not your activity level.">{`Your AMR is : ${Math.round(calorie)} calories per day`}</div>
+              <br></br>
+              {!bmiFlag ? (
+                <button onClick={() => setbmiFlag(true)}>Diet Recommendation Based on BMI</button>
               ) : (
                 <>
                   {Calorie()}
@@ -571,15 +611,17 @@
                   <button onClick={() => setbmiFlag(false)}>Go back</button>
                 </>
               )}
-            {/* {chartData && <Pie data={chartData} />} */} 
+            </div>
+            <div className="result">
+            </div>
+            <div className='bmi-result'>{"Your older BMI : " +  bmiResult}</div> 
           </div>
-          <div className='bmi-result'>{"Your older BMI : " +  bmiResult}</div> 
-          {/* {/* <button onClick={handleClear}>Clear</button> */}
-          {/* <button onClick={handleRefresh}>Refresh</button>  */}
         </div>
       </div>
-    </div>
-  );
+    );
+    
+    
+  
 } 
 
 export default Bmi2
