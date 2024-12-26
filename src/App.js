@@ -2,13 +2,13 @@ import React from "react";
 import "./App.css";
 import { Route, Routes } from "react-router-dom";
 import { Box } from "@mui/material";
-import Navbar from "./components/Navbar";
- import ExerciseDetail from "./pages/ExerciseDetails";
-import Home from "./pages/Home";
-import Bmi2 from "./pages/Bmi2/Bmi2";
-import Exercise from "./pages/Exercise";
-import Nutrition from "./pages/Nutrition";
-import RecipeSearch from "./pages/RecipeSearch";
+import Navbar from "./components/navbar/Navbar";
+ import ExerciseDetail from "./components/exercise/ExerciseDetails";
+import Home from "./components/home/Home";
+import Bmi2 from "./components/bmi/Bmi2";
+import Exercise from "./components/exercise/Exercise";
+import Nutrition from "./components/nutrition/Nutrition";
+import RecipeSearch from "./components/recipesearch/RecipeSearch";
 
 
 const App = () => {
